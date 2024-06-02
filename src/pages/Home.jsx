@@ -29,22 +29,32 @@ function Home() {
   }, []);
   return (
     <>
-      <nav className="h-[60px] w-full bg-blue-500 flex justify-end items-end p-5">
+      <nav className="h-[10vh] w-full bg-blue-500 flex justify-end items-end p-5">
         <Form action="/logout" method="post">
           <button className="my-auto">
             <CiLogin size={30} />
           </button>
         </Form>
       </nav>
-      <h1 className="text-black font-semibold text-center text-3xl m-2 font-marker">
-        List of users
-      </h1>
-      <div>
-        {users.map((user) => (
-          <Card key={user._id} name={user.name} email={user.email} />
-        ))}
-      </div>
-      <footer className="h-[60px] w-full bg-blue-500 fixed z-1 "></footer>
+      <main className="h-[80vh]">
+        <h1 className="text-black font-semibold text-center text-3xl m-2 font-marker">
+          List of users
+        </h1>
+        <div>
+          {users.map((user) => (
+            <Card key={user._id} name={user.name} email={user.email} />
+          ))}
+        </div>
+      </main>
+      <footer className="h-[10vh] w-full bg-blue-500 fixed text-lg text-left p-5 ">
+        <a
+          href="https://strateg.in/mentions-legales"
+          target="_blank"
+          className="font-indie "
+        >
+          Mentiones légales
+        </a>
+      </footer>
     </>
   );
 }
