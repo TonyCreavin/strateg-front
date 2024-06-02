@@ -33,9 +33,10 @@ export default function AuthForm() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="John Doe"
-                      required
+                      required={isLogin}
                     />
                   </div>
                 )}
@@ -50,6 +51,7 @@ export default function AuthForm() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="john.doe@company.com"
                     required
@@ -65,26 +67,32 @@ export default function AuthForm() {
                   <input
                     type="password"
                     id="password"
+                    name="password"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="•••••••••"
                     required
                   />
                 </div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="passwordConfirm"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Confirm Password
-                  </label>
-                  <input
-                    type="password"
-                    id="passwordConfirm"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="•••••••••"
-                    required
-                  />
-                </div>
+                {isLogin ? (
+                  ''
+                ) : (
+                  <div className="mb-6">
+                    <label
+                      htmlFor="passwordConfirm"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Confirm Password
+                    </label>
+                    <input
+                      type="password"
+                      id="passwordConfirm"
+                      name="passwordConfirm"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="•••••••••"
+                      required
+                    />
+                  </div>
+                )}
                 <div className="flex-auto lg:space-x-10">
                   <button
                     type="submit"
