@@ -1,5 +1,4 @@
 import { json, redirect } from 'react-router-dom';
-//import axios from 'axios';
 
 export async function action({ request }) {
   const url = new URL(request.url);
@@ -19,15 +18,6 @@ export async function action({ request }) {
       passwordConfirm: data.get('passwordConfirm'),
     }),
   };
-  // const response = await axios.post(
-  //   `http://127.0.0.1:3000/api/v1/users/${mode}`,
-  //   authData,
-  //   {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   }
-  // );
 
   console.log('AuthData:', authData);
   try {
@@ -45,10 +35,7 @@ export async function action({ request }) {
       throw json({ message: 'Invalid credentials', status: 500 });
     }
     const resData = await response.json();
-    // const token = resData.token;
-    // localStorage.setItem('token', token);
 
-    // return redirect('/');
     if (mode === 'signin') {
       const token = resData.token;
       localStorage.setItem('token', token);
