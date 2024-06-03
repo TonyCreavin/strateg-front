@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { tokenLoader } from './../util/auth';
 import Home from './pages/Home';
 
 import Auth from './pages/Authentication';
@@ -8,7 +9,7 @@ import { action as authAction } from './pages/Auth_action';
 import { action as logoutAction } from './pages/Logout';
 //import Signin from './pages/Signin';
 const router = createBrowserRouter([
-  { path: '/', element: <Home /> },
+  { path: '/', element: <Home />, loader: tokenLoader, id: 'root' },
 
   { path: '/auth', element: <Auth />, action: authAction },
   //{ path: '/signup', element: <Signup /> },

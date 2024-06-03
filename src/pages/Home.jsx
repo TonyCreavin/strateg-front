@@ -4,10 +4,14 @@ import Card from '../components/Card';
 import '../App.css';
 import { CiLogin } from 'react-icons/ci';
 import getAuthToken from '../../util/auth';
-import { Form } from 'react-router-dom';
+import { Form, useRouteLoaderData } from 'react-router-dom';
 
 function Home() {
   const [users, setUsers] = useState([]);
+  const token = useRouteLoaderData('root');
+  if (!token) {
+    window.location.href = '/auth?mode=signin';
+  }
 
   useEffect(() => {
     const getUsers = async () => {
@@ -40,7 +44,7 @@ function Home() {
         <h1 className="text-black font-semibold text-center text-3xl m-2 font-marker">
           List of users
         </h1>
-        <div>
+        <div className="h-[70vh] overflow-scroll">
           {users.map((user) => (
             <Card key={user._id} name={user.name} email={user.email} />
           ))}
