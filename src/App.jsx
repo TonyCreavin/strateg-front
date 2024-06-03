@@ -3,6 +3,7 @@ import { tokenLoader } from './../util/auth';
 import Home from './pages/Home';
 import Auth from './pages/Authentication';
 import { action as authAction } from './pages/Auth_action';
+
 import { action as logoutAction } from './pages/Logout';
 
 const router = createBrowserRouter([
