@@ -9,7 +9,7 @@ const router = createBrowserRouter([
   { path: '/', element: <Home />, loader: tokenLoader, id: 'root' },
 
   { path: '/auth', element: <Auth />, action: authAction },
-  //{ path: '/signup', element: <Signup /> },
+
   { path: '/logout', action: logoutAction },
 ]);
 
