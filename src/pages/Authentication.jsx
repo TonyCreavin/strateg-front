@@ -2,7 +2,7 @@ import AuthForm from '../components/AuthForm';
 
 function Authentication() {
   return (
-    <div>
+    <div className="my-20">
       <AuthForm />
     </div>
   );

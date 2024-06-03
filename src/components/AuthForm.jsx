@@ -6,16 +6,16 @@ export default function AuthForm() {
   const isLogin = searchParams.get('mode') === 'signin';
 
   return (
-    <div className="bg-[#FFFFFF] h-[100vh] flex sm:flex-col-reverse md:flex-row">
-      <div className=" container m-auto h-[70vh] items-center bg-[#FFFFFF] rounded-sm shadow-sm">
-        <div className="lg:grid grid-cols-2 gap-4 ">
-          <div className=" h-[80vh] p-2">
+    <div className="bg-[#FFFFFF] h-[100vh] p-4">
+      <div className=" container m-auto h-[70vh]  items-center bg-[#FFFFFF] rounded-sm shadow-sm ">
+        <div className="flex flex-col-reverse gap-2  mx-2 md:flex-row md:mx-0">
+          <div className=" h-[80vh] p-2 flex-1">
             <div className="bg-[#F6F6F6] rounded-sm text-center items-center">
               <img className="w-full rounded-md" src={img} alt="login icon" />
             </div>
           </div>
-          <div className="h-[60vh]">
-            <div className="text-center text-3xl mb-4">
+          <div className="h-[80vh] flex-1">
+            <div className="text-center text-3xl mb-2">
               <h1 className="font-marker ">
                 {isLogin ? 'Sign in' : 'Create an account'}
               </h1>
