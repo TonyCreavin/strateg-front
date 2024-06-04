@@ -3,7 +3,7 @@ import { Form, Link, useSearchParams } from 'react-router-dom';
 
 export default function AuthForm() {
   const [searchParams] = useSearchParams();
-  const isLogin = searchParams.get('mode') === 'signin';
+  const isLogin = searchParams.get('mode') === 'login';
 
   return (
     <div className="bg-[#FFFFFF] h-[100vh] p-4">
@@ -116,7 +116,7 @@ export default function AuthForm() {
                 )}
 
                 <div>
-                  <Link to={`?mode=${isLogin ? 'signup' : 'signin'}`}>
+                  <Link to={`?mode=${isLogin ? 'register' : 'login'}`}>
                     <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">
                       {isLogin ? 'Register ' : 'Sign in'}
                     </button>

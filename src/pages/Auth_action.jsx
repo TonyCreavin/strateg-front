@@ -3,9 +3,9 @@ import { json, redirect } from 'react-router-dom';
 export async function action({ request }) {
   const url = new URL(request.url);
   const searchParams = url.searchParams;
-  const mode = searchParams.get('mode') || 'signin';
+  const mode = searchParams.get('mode') || 'login';
 
-  if (mode !== 'signin' && mode !== 'signup') {
+  if (mode !== 'login' && mode !== 'register') {
     throw json({ message: 'Invalid mode', status: 400 });
   }
 
@@ -13,7 +13,7 @@ export async function action({ request }) {
   const authData = {
     email: data.get('email'),
     password: data.get('password'),
-    ...(mode === 'signup' && {
+    ...(mode === 'register' && {
       name: data.get('name'),
       passwordConfirm: data.get('passwordConfirm'),
     }),
@@ -36,12 +36,12 @@ export async function action({ request }) {
     }
     const resData = await response.json();
 
-    if (mode === 'signin') {
+    if (mode === 'login') {
       const token = resData.token;
       localStorage.setItem('token', token);
       return redirect('/');
-    } else if (mode === 'signup') {
-      return redirect('/auth?mode=signin');
+    } else if (mode === 'register') {
+      return redirect('/auth?mode=login');
     }
   } catch (error) {
     console.error('Request failed', error);

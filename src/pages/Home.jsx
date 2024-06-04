@@ -10,7 +10,7 @@ function Home() {
   const [users, setUsers] = useState([]);
   const token = useRouteLoaderData('root');
   if (!token) {
-    window.location.href = '/auth?mode=signin';
+    window.location.href = '/auth?mode=login';
   }
 
   useEffect(() => {
